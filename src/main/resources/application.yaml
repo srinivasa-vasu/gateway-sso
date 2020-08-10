@@ -19,7 +19,7 @@ spring:
         order: 0
         predicates:
           - Path=/vendor/**, /resources/**
-      - id: rewrite-location-content
+      - id: rewrite-location-url
         uri: ${SSO_SCHEME}://${SSO_URL}
         order: 0
         predicates:
