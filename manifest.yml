@@ -6,5 +6,5 @@ applications:
    path: target/gateway-1.0.jar
    env:
      SSO_SCHEME: https
-     SSO_URL: hm.login.domain
-     SSO_OVERRIDE_URL: scg.cfapps.domain/ssoauth
+     SSO_URL: hm.login.domain #internal facing url
+     SSO_OVERRIDE_URL: scg.cfapps.domain/ssoauth #external facing url
