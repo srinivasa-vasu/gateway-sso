@@ -1,0 +1,10 @@
+---
+applications:
+ - name: scg
+   memory: 1G
+   instances: 1
+   path: target/gateway-1.0.jar
+   env:
+     SSO_SCHEME: https
+     SSO_URL: hm.login.domain
+     SSO_OVERRIDE_URL: scg.cfapps.domain/ssoauth

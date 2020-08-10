@@ -1,0 +1,32 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: general
+        uri: ${SSO_SCHEME}://${SSO_URL}
+        order: 0
+        predicates:
+          - Path=/vendor/**, /resources/**
+      - id: rewrite-location-content
+        uri: ${SSO_SCHEME}://${SSO_URL}
+        order: 0
+        predicates:
+        - Path=/ssoauth/**
+        filters:
+        - StripPrefix=1
+        - name: RewriteLocationURLResponseHeader
+          args:
+            hostValue: ${SSO_URL}
+            overrideHostValue: ${SSO_OVERRIDE_URL}
